@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import api from "../api/axiosConfig"
 const Join = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const handleJoin = () => {
-        axios.post('http://localhost:8080/join',
+        // axios.post('http://localhost:8080/join',
+        api.post('/join',
             { username, password },
             { headers: { 'Content-Type': 'application/json' } } )
             .then(resp => console.log(resp))

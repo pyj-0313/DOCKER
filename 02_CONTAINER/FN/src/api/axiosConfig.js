@@ -7,7 +7,8 @@ import axios from 'axios';
 //    → BN SecurityConfig 의 allowCredentials(true) 와 한 쌍
 // -------------------------------------------------------------
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  // baseURL: 'http://localhost:8080',
+  baseURL: process.env.REACT_APP_API_URL,
   withCredentials: true,
 });
 
@@ -24,7 +25,7 @@ api.interceptors.request.use(
 
     try {
       // 쿠키 유효성 확인 (전역 axios 라 withCredentials 직접 명시)
-      await axios.get('http://localhost:8080/validate', { withCredentials: true });
+      await axios.get(`${process.env.REACT_APP_API_URL}/validate`, { withCredentials: true });
       console.log('[요청 인터셉터] 인증된 상태');
       return config;
     } catch (error) {

@@ -9,20 +9,20 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const validateToken = async () => {
-            try {
-                const resp = await axios.get("http://localhost:8080/validate", {withCredentials: true,});
-                console.log("토큰검증 성공 : ", resp);
-                navigate("/")
-            } catch (error) {
-                console.log("토큰검증실패..", error);
-            }
-        }
-        validateToken();
+    //     const validateToken = async () => {
+    //         try {
+    //             const resp = await axios.get("http://localhost:8080/validate", {withCredentials: true,});
+    //             console.log("토큰검증 성공 : ", resp);
+    //             navigate("/")
+    //         } catch (error) {
+    //             console.log("토큰검증실패..", error);
+    //         }
+    //     }
+    //     validateToken();
 
-    }, [navigate])
+    // }, [navigate])
 
     const handleLogin = async () => {
         try {

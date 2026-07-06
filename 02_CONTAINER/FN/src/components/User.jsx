@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
+import api from "../api/axiosConfig"
 
 // 보호 페이지 : api 인스턴스로 호출 → 요청 인터셉터가 /validate 선확인 후 전송
 const User = () => {
@@ -8,7 +9,8 @@ const User = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const resp = await axios.get("http://localhost:8080/user", {withCredentials: true}); // 쿠키의 JWT로 BN이 인증
+                // const resp = await axios.get("http://localhost:8080/user", {withCredentials: true}); // 쿠키의 JWT로 BN이 인증
+                const resp = await api.get("/user"); // 쿠키의 JWT로 BN이 인증
                 console.log(resp)
                 setUserInfo(resp.data);               // { username, role }
                 setError(null);
