@@ -9,4 +9,4 @@ RUN npm install
 # 나머지 소스 코드 전체 복사
 COPY . .
 # 컨테이너 시작 시 실행할 명령
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
