@@ -54,7 +54,7 @@ public class SecurityConfig {
             //정적경로 매핑
             auth.requestMatchers("/favicon.ico").permitAll();
 
-            auth.requestMatchers("/","/join","/login","/validate").permitAll();
+            auth.requestMatchers("/","/join","/login","/validate","/actuator/**").permitAll();
             //
             auth.requestMatchers("/user").hasAnyRole("USER","ADMIN"); //
             auth.requestMatchers("/manager").hasAnyRole("MANAGER"); //
