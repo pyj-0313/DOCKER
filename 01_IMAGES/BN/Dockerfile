@@ -12,7 +12,7 @@ WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 
 # 외부 접근을 위한 포트 설정
-EXPOSE 8095
+EXPOSE 8080
 
 # JAR 실행
 CMD ["java", "-jar", "app.jar"]
