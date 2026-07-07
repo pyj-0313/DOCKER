@@ -10,10 +10,7 @@ networks:
 
 services:
   db:
-    image: db
-    build:
-      context: ./DB
-      dockerfile: Dockerfile
+    image: pyj0313/docker_app_test:db
     container_name: db-container
     networks:
       custom-network:
@@ -36,9 +33,7 @@ services:
       - db-data:/var/lib/mysql           
   
   redis:
-    image: redis
-    build:
-      context: ./REDIS
+    image: pyj0313/docker_app_test:redis
     container_name: redis-container
     ports:
       - "6380:6379"
@@ -46,9 +41,7 @@ services:
       custom-network:
         ipv4_address: 172.30.0.20  
   fn:
-    image: fn
-    build:
-      context: ./FN
+    image: pyj0313/docker_app_test:fn
     container_name: fn-container
     ports:
       - "3000:80"
@@ -60,9 +53,7 @@ services:
         ipv4_address: 172.30.0.30 
 
   bn:
-    image: bn
-    build:
-      context: ./BN
+    image: pyj0313/docker_app_test:bn
     container_name: bn-container
     ports:
       - "8080:8080"
